@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">NAS Photo Frame</string>
+    <string name="config_title">NAS 配置</string>
+    <string name="host_hint">NAS 地址 (如 192.168.1.100)</string>
+    <string name="share_hint">共享文件夹 (如 Multimedia)</string>
+    <string name="username_hint">用户名</string>
+    <string name="password_hint">密码</string>
+    <string name="connectBtn">连接</string>
+    <string name="connecting">连接中...</string>
+    <string name="connection_failed">连接失败，请检查网络</string>
+    <string name="no_images">未找到图片</string>
+    <string name="loading">加载中...</string>
+    <string name="network_lost">网络断开，正在重连...</string>
+</resources>

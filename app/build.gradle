@@ -1,0 +1,43 @@
+plugins {
+    id 'com.android.application'
+    // Kotlin is built into AGP 9.x
+}
+
+android {
+    namespace 'com.nasframe.app'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId "com.nasframe.app"
+        minSdk 24
+        targetSdk 36
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.10.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.2'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
+
+    implementation 'com.hierynomus:smbj:0.14.0'
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
+    implementation 'io.github.awxkee:avif-coder-glide:2.2.0'
+}

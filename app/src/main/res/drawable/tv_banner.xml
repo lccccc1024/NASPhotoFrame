@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="320dp"
+    android:height="180dp"
+    android:viewportWidth="320"
+    android:viewportHeight="180">
+    <!-- Background -->
+    <path
+        android:fillColor="#FF121212"
+        android:pathData="M0,0 L320,0 L320,180 L0,180 Z" />
+    <!-- Purple accent bar -->
+    <path
+        android:fillColor="#FF6200EE"
+        android:pathData="M0,0 L320,0 L320,6 L0,6 Z" />
+    <!-- Image icon (simplified) -->
+    <path
+        android:fillColor="#FF6200EE"
+        android:pathData="M60,50 L80,50 L80,80 L60,80 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M86,50 L106,50 L106,80 L86,80 Z" />
+    <path
+        android:fillColor="#FF6200EE"
+        android:pathData="M112,50 L132,50 L132,80 L112,80 Z" />
+    <!-- Text "NAS Photo Frame" area -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M160,57 L290,57 L290,62 L160,62 Z" />
+    <path
+        android:fillColor="#88FFFFFF"
+        android:pathData="M160,72 L260,72 L260,76 L160,76 Z" />
+</vector>
