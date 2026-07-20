@@ -43,7 +43,6 @@ class SMBService : Closeable {
         .withSoTimeout(SOCKET_TIMEOUT_SEC, TimeUnit.SECONDS)
         .withReadTimeout(READ_TIMEOUT_SEC, TimeUnit.SECONDS)
         .withWriteTimeout(WRITE_TIMEOUT_SEC, TimeUnit.SECONDS)
-        .withEncryptData(true)            // request SMB encryption when available (SMB 3.x)
         .build()
 
     fun isConnected(): Boolean {

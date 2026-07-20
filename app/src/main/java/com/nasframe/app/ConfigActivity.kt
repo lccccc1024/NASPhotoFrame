@@ -83,8 +83,9 @@ class ConfigActivity : AppCompatActivity() {
         }
 
         // Extract password as CharArray to avoid leaving it in a String
-        val passwordChars = CharArray(etPassword.text.length)
-        etPassword.text.getChars(0, etPassword.text.length, passwordChars, 0)
+        val editable = etPassword.text ?: return
+        val passwordChars = CharArray(editable.length)
+        editable.getChars(0, editable.length, passwordChars, 0)
         val password = String(passwordChars)
         // Wipe the CharArray immediately
         passwordChars.fill('\u0000')

@@ -1,41 +1,16 @@
-# Built application files
-*.apk
-*.ap_
-*.aab
-
-# Files for the ART/Dalvik VM
-*.dex
-
-# Java class files
-*.class
-
-# Generated files
-bin/
-gen/
-out/
-
-# Gradle files
+# Gradle
 .gradle/
 build/
-local.properties
+!gradle/wrapper/gradle-wrapper.jar
 
-# IDE files
+# IDE
 .idea/
 *.iml
 *.iws
-*.ipr
-.vscode/
-*.swp
-*.swo
-*~
 
-# OS files
+# Local configuration
+local.properties
+
+# OS
 .DS_Store
 Thumbs.db
-Desktop.ini
-
-# Logs
-*.log
-
-# Gradle wrapper binary (keep source, not jar)
-gradle/wrapper/gradle-wrapper.jar

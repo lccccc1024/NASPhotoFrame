@@ -283,14 +283,16 @@ class MainActivity : AppCompatActivity(), NetworkMonitor.Listener {
         totalImages = savedInstanceState.getInt(KEY_TOTAL_IMAGES)
         imagePaths = savedInstanceState.getStringArrayList(KEY_IMAGE_PATHS) ?: emptyList()
 
-        if (imagePaths.isEmpty() || smbService == null || !smbService!!.isConnected()) {
-            // State is stale — fall back to fresh connect
+        // If we have cached image paths and a live SMB connection, skip rescan
+        if (needReconnect || imagePaths.isEmpty()) {
             startSlideshow()
             return
         }
 
+        // Config change recovery: reseed the slideshow with cached data
+        // smbService will be reconnected via onResume → networkMonitor.register
         slideshowManager = SlideshowManager(
-            smbService!!,
+            smbService ?: return,
             findViewById(R.id.ivPhoto),
             10000,
             lifecycleScope
@@ -298,7 +300,6 @@ class MainActivity : AppCompatActivity(), NetworkMonitor.Listener {
             mgr.onError = { msg -> showOverlay(msg) }
         }
         slideshowManager?.setImages(imagePaths)
-        // Restore position but re-shuffle to keep the experience fresh
         slideshowManager?.start()
         showOverlay("$totalImages 张图片，继续轮播")
     }
