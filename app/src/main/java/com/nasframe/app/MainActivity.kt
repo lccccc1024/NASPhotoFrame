@@ -283,25 +283,9 @@ class MainActivity : AppCompatActivity(), NetworkMonitor.Listener {
         totalImages = savedInstanceState.getInt(KEY_TOTAL_IMAGES)
         imagePaths = savedInstanceState.getStringArrayList(KEY_IMAGE_PATHS) ?: emptyList()
 
-        // If we have cached image paths and a live SMB connection, skip rescan
-        if (needReconnect || imagePaths.isEmpty()) {
-            startSlideshow()
-            return
-        }
-
-        // Config change recovery: reseed the slideshow with cached data
-        // smbService will be reconnected via onResume → networkMonitor.register
-        slideshowManager = SlideshowManager(
-            smbService ?: return,
-            findViewById(R.id.ivPhoto),
-            10000,
-            lifecycleScope
-        ).also { mgr ->
-            mgr.onError = { msg -> showOverlay(msg) }
-        }
-        slideshowManager?.setImages(imagePaths)
-        slideshowManager?.start()
-        showOverlay("$totalImages 张图片，继续轮播")
+        // smbService is always null after config change (closed in onDestroy),
+        // so always fall back to a fresh connection + scan
+        startSlideshow()
     }
 
     override fun onDestroy() {
